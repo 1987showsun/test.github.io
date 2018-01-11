@@ -1330,11 +1330,20 @@ body{
       display: none !important;
     }
   }
+  &.indexPage1{
+    @include pc{
+
+    };
+    @include pad{
+
+    };
+    @include mobile{
+      min-height: 340px !important;
+    };
+  }
   &.indexPage2{
-    background-image: url('https://www.tstartel.com/upload/1/index/426/2_rwd_i_002_1_1_I1.jpg');
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-position: left center;
+    background-image    : url('https://www.tstartel.com/upload/1/index/426/2_rwd_i_002_1_1_I1.jpg');
+    background-repeat   : no-repeat;
     main{
       opacity: 0;
       margin-top: 100px;
@@ -1358,11 +1367,22 @@ body{
         opacity: 1;
       }
     }
+    @include pc{
+      background-size     : auto 100%;
+      background-position : left center;
+    };
+    @include pad{
+      background-size     : auto 100%;
+      background-position : left center;
+    };
+    @include mobile{
+      background-size     : 240% auto;
+      background-position : 18% top;
+    };
   }
   &.indexPage3{
     background-image   : url(https://www.tstartel.com/upload/1/index/426/3_rwd_i_002_1_1_I1.jpg);
     background-repeat  : no-repeat;
-    background-size    : cover;
     @include transition(all .9s);
     main{
       color     : #000;
@@ -1376,18 +1396,24 @@ body{
         opacity: 1;
       }
     }
+    @include pc{
+      background-size    : cover;
+    };
+    @include pad{
+      background-size    : cover;
+    };
+    @include mobile{
+      background-size    : 260% auto;
+      background-position: 0% top;
+    };
   }
   &.indexPage4{
     background-image: url(https://www.tstartel.com/upload/1/index/432/4_rwd_i_004_1_1_I1.jpg);
-    background-position: center top;
     background-repeat: no-repeat;
-    background-size: 100% auto;
     justify-content: center;
     flex-direction: row-reverse;
     align-items: flex-end;
     main{
-      width            : 55vw;
-      padding          : 25px;
       margin-left      : 0px;
       margin-bottom    : 0%;
       background-color : #fff;
@@ -1402,6 +1428,30 @@ body{
         margin-bottom : 5%;
       }
     }
+    @include pc{
+      background-position: center top;
+      background-size: 100% auto;
+      main{
+        width            : 55vw !important;
+        padding          : 25px;
+      }
+    };
+    @include pad{
+      background-position: center top;
+      background-size: 100% auto;
+      main{
+        width            : 70vw !important;
+        padding          : 25px;
+      }
+    };
+    @include mobile{
+      background-position: 70% top;
+      background-size: 250% auto;
+      main{
+        width            : 90vw !important;
+        padding          : 25px;
+      }
+    };
   }
   &.indexPage5{
     ul{

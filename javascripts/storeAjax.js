@@ -75,11 +75,11 @@ function renderStoreContent(_city,_zip,storeData){
                           '<li>'+storeData[i].storeAddress+'<br/>'+storeData[i].phoneNumber+'</li>'+
                           '<li>'+storeData[i].operateTime+'</li>'+
                           '<li>'+
-                            '<a href="#" class="btnStyleModel6">'+
+                            '<a href="tel:'+storeData[i].phoneNumber+'" class="btnStyleModel6">'+
                               '<img src="https://www.tstartel.com/resources/common/mobile/css/images/icon/tel.png" alt="聯絡門市" title="" style="width:15px"/>'+
                               '聯絡門市'+
                             '</a>'+
-                            '<a href="#" class="btnStyleModel6">'+
+                            '<a href="https://www.google.com/maps/dir/Current+Location/'+storeData[i].latlng+'" class="btnStyleModel6" target="_blank">'+
                               '<img src="https://www.tstartel.com/resources/common/mobile/css/images/icon/map.png" alt="規劃路線" title=""/>'+
                               '規劃路線'+
                             '</a>'+
