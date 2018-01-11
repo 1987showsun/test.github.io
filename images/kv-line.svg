@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1440 768" style="enable-background:new 0 0 1440 768;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;}
+	.st1{clip-path:url(#SVGID_2_);}
+	.st2{clip-path:url(#SVGID_4_);fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<title>Rectangle 6</title>
+<desc>Created with Sketch.</desc>
+<g id="FIN" transform="translate(-120.000000, -147.000000)">
+	<path id="Rectangle-6_1_" class="st0" d="M240.5,639.6v205.9h1199v-551h-1199v202.3"/>
+</g>
+<g>
+	<g>
+		<defs>
+			<polyline id="SVGID_1_" points="123,-4360.1 123,-4526 1323,-4526 1323,-3974 123,-3974 123,-4146.2 			"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<g class="st1">
+			<g>
+				<defs>
+					<rect id="SVGID_3_" x="3" y="-4673" width="1440" height="10022"/>
+				</defs>
+				<clipPath id="SVGID_4_">
+					<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+				</clipPath>
+				<polyline class="st2" points="123,-4360.1 123,-4526 1323,-4526 1323,-3974 123,-3974 123,-4146.2 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

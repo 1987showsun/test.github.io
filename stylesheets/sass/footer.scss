@@ -1,0 +1,179 @@
+@charset "UTF-8";
+.ts-footer {
+  background: #f2f2f2; }
+  @media (min-width: 768px) {
+    .ts-footer .container-fluid {
+      padding: 0 40px; } }
+  @media (min-width: 992px) {
+    .ts-footer .container-fluid {
+      padding: 0 20px; } }
+  .ts-footer__sitemap {
+    padding: 25px 0; }
+    @media (min-width: 992px) {
+      .ts-footer__sitemap {
+        padding: 80px 0; } }
+    @media (min-width: 992px) {
+      .ts-footer__sitemap .row {
+        max-width: 1200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; } }
+    .ts-footer__sitemap__title {
+      color: #87286E;
+      padding: 8px 0;
+      font-size: 18px;
+      border-bottom: 1px #87286E solid;
+      position: relative; }
+      .ts-footer__sitemap__title__icon {
+        position: absolute;
+        right: 8px;
+        top: 14px; }
+        .ts-footer__sitemap__title__icon:before {
+          font-size: 13px; }
+    .ts-footer__sitemap__content {
+      color: #333333;
+      list-style-type: none;
+      padding: 0;
+      display: none; }
+      @media (min-width: 992px) {
+        .ts-footer__sitemap__content {
+          display: block;
+          margin-top: 5px; } }
+      .ts-footer__sitemap__content a {
+        padding: 5px 0;
+        display: inline-block;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        transition: all .3s ease; }
+        .ts-footer__sitemap__content a:hover, .ts-footer__sitemap__content a:focus {
+          color: #b70076;
+          text-decoration: none; }
+  .ts-footer__bottom {
+    background : #d8d8d8;
+    padding    : 20px 0;
+    text-align : center;
+    display    : flex;
+    justify-content: center;
+  }
+    .ts-footer__bottom__award__item {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 20px 10px;
+      width: 24%; }
+      @media (min-width: 768px) {
+        .ts-footer__bottom__award__item {
+          width: auto;
+          padding: 20px 28px; } }
+    .ts-footer__bottom__copyright {
+      color: #4a4a4a;
+      line-height: 180%;
+      font-size: 13px; }
+
+.ts-sprites.ft-award01 {
+  background-image: url(../images/icons/ft-award01.png);
+  display: inline-block;
+  -moz-background-size: contain;
+       background-size: contain;
+  width: 34px;
+  height: 31px; }
+
+.ts-sprites.ft-award02 {
+  background-image: url(../images/icons/ft-award02.png);
+  display: inline-block;
+  -moz-background-size: contain;
+       background-size: contain;
+  width: 50px;
+  height: 23px; }
+
+.ts-sprites.ft-award03 {
+  background-image: url(../images/icons/ft-award03.png);
+  display: inline-block;
+  -moz-background-size: contain;
+       background-size: contain;
+  width: 50px;
+  height: 27px; }
+
+.ts-sprites.ft-award04 {
+  background-image: url(../images/icons/ft-award04.png);
+  display: inline-block;
+  -moz-background-size: contain;
+       background-size: contain;
+  width: 33px;
+  height: 36px; }
+
+.ts-sprites.youtube.active {
+  background-image: url(../images/icons/youtube-active.png);
+  display: inline-block;
+  -moz-background-size: contain;
+       background-size: contain;
+  width: 35px;
+  height: 8px; }
+
+.ts-sprites.youtube:hover {
+  background-image: url(../images/icons/youtube-hover.png);
+  display: inline-block;
+  -moz-background-size: contain;
+       background-size: contain;
+  width: 35px;
+  height: 8px; }
+
+.ts-sprites.youtube {
+  background-image: url(../images/icons/youtube.png);
+  display: inline-block;
+  -moz-background-size: contain;
+       background-size: contain;
+  width: 35px;
+  height: 8px; }
+
+@media (min-width: 992px) {
+  .ts-sprites.ft-award01 {
+    background-image: url(../images/icons/ft-award01.png);
+    display: inline-block;
+    -moz-background-size: contain;
+         background-size: contain;
+    width: 68px;
+    height: 61px; }
+  .ts-sprites.ft-award02 {
+    background-image: url(../images/icons/ft-award02.png);
+    display: inline-block;
+    -moz-background-size: contain;
+         background-size: contain;
+    width: 100px;
+    height: 46px; }
+  .ts-sprites.ft-award03 {
+    background-image: url(../images/icons/ft-award03.png);
+    display: inline-block;
+    -moz-background-size: contain;
+         background-size: contain;
+    width: 99px;
+    height: 53px; }
+  .ts-sprites.ft-award04 {
+    background-image: url(../images/icons/ft-award04.png);
+    display: inline-block;
+    -moz-background-size: contain;
+         background-size: contain;
+    width: 65px;
+    height: 70px; }
+  .ts-sprites.youtube.active {
+    background-image: url(../images/icons/youtube-active.png);
+    display: inline-block;
+    -moz-background-size: contain;
+         background-size: contain;
+    width: 70px;
+    height: 15px; }
+  .ts-sprites.youtube:hover {
+    background-image: url(../images/icons/youtube-hover.png);
+    display: inline-block;
+    -moz-background-size: contain;
+         background-size: contain;
+    width: 70px;
+    height: 15px; }
+  .ts-sprites.youtube {
+    background-image: url(../images/icons/youtube.png);
+    display: inline-block;
+    -moz-background-size: contain;
+         background-size: contain;
+    width: 70px;
+    height: 15px; }
+  }
