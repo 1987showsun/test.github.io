@@ -1,4 +1,4 @@
-/*! 1515061826637 | tstar | tstar design by blackj | blackj */
+/*! 1515662448149 | tstar | tstar design by blackj | blackj */
 $(document).ready(function(){
     HamburgerClick();
     HeaderSearch();
@@ -23,6 +23,7 @@ $(window).resize(function(){
     CheckAnchorShow();
 });
 
+// Sun modify
 header = {
   $block       : '',
   _scrollTop   : 0,
@@ -37,18 +38,19 @@ header = {
   },
 }
 
+// 漢堡選單
 function HamburgerClick(){
     $('.hamburger').click(function(){
         $(this).toggleClass('is-active');
         if($(this).hasClass('is-active')) {
             $('.hamburger').addClass('is-active');
 			NavShow(true);
-			$('.ts-main, .ts-footer, .ts-adwrap, .ts-header').addClass('blur');
+			$('.ts-main, .ts-footer, .ts-adwrap, .ts-header, #wrapper').addClass('blur');
         }
         else {
             $('.hamburger').removeClass('is-active');
 			NavShow(false);
-			$('.ts-main, .ts-footer, .ts-adwrap, .ts-header').removeClass('blur');
+			$('.ts-main, .ts-footer, .ts-adwrap, .ts-header, #wrapper').removeClass('blur');
         }
     });
 
@@ -58,6 +60,7 @@ function HamburgerClick(){
     });
 }
 
+// 控制nav出現
 function NavShow(p){
     if($('.ts-nav').length){
         if(p) {
@@ -82,6 +85,7 @@ function NavShow(p){
 
 }
 
+// nav menu slide
 function NavSlide(){
     if($('.ts-nav').length){
         $('.ts-nav__list__item__title .ts-icons-plus').click(function(){
@@ -135,6 +139,7 @@ function NavSlide(){
 }
 
 // 正確的版本
+// header input
 // function HeaderSearch(){
 //     $('.ts-header__wrap__inner__search .ts-icons-search').click(function(){
 // 		if($('.ts-header__wrap__inner__search .navbar-form').hasClass('hide')) {
@@ -155,6 +160,7 @@ function NavSlide(){
 // }
 
 // // 暫時用
+// header input
 function HeaderSearch(){
     $('.ts-header__wrap__inner__search .ts-icons-search').click(function(){
 		if($('.ts-header__wrap__inner__search .navbar-form').hasClass('hide')) {
@@ -175,13 +181,14 @@ function HeaderSearch(){
 }
 
 
-
+// mobile footer
 function FooterSlider(){
     $('.ts-footer__sitemap__title').click(function(){
         $(this).next().slideToggle(200);
     });
 }
 
+// 次首頁 slider
 function KvSlickSlide(){
     $('.ts-kv >.slick').slick({
         arrows:true,
@@ -201,6 +208,7 @@ function KvSlickSlide(){
     });
 }
 
+// 次首頁錨點要不要出現
 function CheckAnchorShow(){
     if($('.ts-subkv__bn-anchor').length){
         if($(window).width() < 768){
@@ -251,6 +259,7 @@ function CheckAnchorShow(){
 
 }
 
+// 出現時出現動態
 function EmergenceInit(){
     emergence.init({
         reset:false,
@@ -261,6 +270,7 @@ function EmergenceInit(){
     });
 }
 
+// 回Top
 function BackToTop(){
     if($('.ts-subkv').length){
         var kvOffset=$('.ts-subkv').offset().top + $('.ts-subkv').height();
@@ -295,6 +305,7 @@ function BackToTop(){
 
 }
 
+// 次首頁錨點
 function AnchorSlide(){
     if($('.ts-subkv__bn-anchor').length){
         var anchorHeight;
@@ -350,6 +361,7 @@ function AnchorSlide(){
     }
 }
 
+// 滑動主題 slide
 function KvThemeSlide(){
     $('.ts-subsection__skewwords .ts-icons-arrow-right').click(function(){
         $(this).parents('.ts-subsection__skewwords').next('.ts-subsection__skewslide').addClass('show');

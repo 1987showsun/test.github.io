@@ -61,7 +61,6 @@ function getZipStore(_city,_zip,_address){
 
 //rnder Store infor
 function renderStoreContent(_city,_zip,storeData){
-  console.log(storeData);
   var storeContent = '';
   $('#tableTitle').find('.caption').html(_city+' '+_zip);
 
