@@ -446,11 +446,11 @@ body{
         height     : 500px;
       };
       @include pad{
-        height     : 500px;
+        height     : 450px;
       };
       @include mobile{
         padding: 5px;
-        height     : 250px;
+        height     : 220px;
       };
     }
     .selectContent{
@@ -609,11 +609,11 @@ body{
               border-top: none;
               >li{
                 &.tbody{
-                  font-size     : 0.9em;
+                  font-size     : 1em;
                   >ul{
                     >li{
                       &:nth-child(1){
-                        font-size: 1.4em;
+                        font-size: 1.1em;
                       }
                     }
                   }
@@ -624,13 +624,13 @@ body{
                       border-right: 1px solid #cecece;
                       padding     : 15px 10px;
                       &:nth-child(1){
-                        width: 35%;
+                        width: 32%;
                       }
                       &:nth-child(2){
-                        width: 40%;
+                        width: 42%;
                       }
                       &:nth-child(3){
-                        width: 25%;
+                        width: 26%;
                       }
                     }
                   }
@@ -675,6 +675,7 @@ body{
                         display         : flex;
                         align-content   : center;
                         margin-top      : 10px;
+                        justify-content : center;
                         >a{
                           height              : 35px;
                           margin-right        : 10px;
