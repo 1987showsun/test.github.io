@@ -148,7 +148,7 @@ function initMap() {
         lng: position.coords.longitude,
       };
 
-      $.getJSON('http://maps.google.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&language=zh-TW&sensor=true',function(nowCity){
+      $.getJSON('//maps.google.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&language=zh-TW&sensor=true',function(nowCity){
         if( nowCity.results[0]!=undefined ){
           var addressComponents        = nowCity.results[0].address_components,
               addressComponentsLength  = addressComponents.length,
