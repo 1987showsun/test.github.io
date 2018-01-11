@@ -189,6 +189,16 @@ $btnChangeTime : .2s;
   }
 }
 
+.btnStyleModel6{
+  height          : 40px;
+  background-color: transparent;
+  color           : $mainColor1;
+  border          : 1px solid $mainColor1;
+  cursor          : pointer;
+  @include radius(300px);
+  @include transition(all $btnChangeTime);
+}
+
 .iconStyleModel1{
   width  : 60px !important;
   height : 60px !important;

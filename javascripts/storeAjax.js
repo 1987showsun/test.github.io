@@ -1,8 +1,14 @@
-//get City
-$.getJSON('https://www.tstartel.com/rest/zipCode/allCity',function(cityData){
-  var optionCity = '<option value="">請選擇縣市</option>',
-      optionZip  = '<option value="">請選擇地區</option>';
+var optionCity      = '<option value="">請選擇縣市</option>',
+    optionZip       = '<option value="">請選擇地區</option>',
+    googleMapKey    = 'AIzaSyAvJ7qc6sj6AwQVuPx-WD904ETE_WaQgXA', //請更換成公司 Google Map Api Key
+    showMapBlockId  = 'test1',
+    mapZoom         = 15,
+    nowSetIcon      = 'https://www.tstartel.com/resources/s0051/images/current_location.png',
+    storeIcon       = 'https://www.tstartel.com/resources/s0051/images/store.png',
+    locations       = [];
 
+//get City Api
+$.getJSON('https://www.tstartel.com/rest/zipCode/allCity',function(cityData){
   for(var i=0 ; i<cityData.length ; i++){
     optionCity += '<option value="'+cityData[i].city+'">'+cityData[i].city+'</option>'
   }
@@ -10,78 +16,17 @@ $.getJSON('https://www.tstartel.com/rest/zipCode/allCity',function(cityData){
   $('select#city').html(optionCity).on({
     change : function(){
       var _city     = $(this).val(),_zip='',
-          _address  = '';
-      getZip( _city );
+          _address  = '',
+          _zip      = '';
+      getZip( _city,_zip );
       getZipStore(_city,_zip,_address);
     }
   });
 });
 
-function getZip(_city){
-  var optionZip = '<option value="">請選擇地區</option>';
-  $.getJSON('https://www.tstartel.com/rest/zipCode/'+encodeURIComponent(_city),function(zipData){
-    for(var i=0 ; i<zipData.length ; i++){
-      optionZip += '<option value="'+zipData[i].district+'">'+zipData[i].district+'</option>'
-    }
-    $('select#zip').html(optionZip).on({
-      change : function(){
-        var _zip      = $(this).val(),
-            _address  = '';
-        getZipStore(_city,_zip,_address);
-      }
-    });
-  })
-}
-
-$(function(){
-  $('form').submit(function(e){
-    var _city    = $(this).find('#city').val();
-    var _zip     = $(this).find('#zip').val();
-    var _address = $(this).find('#address').val();
-    getZipStore(_city,_zip,_address);
-    e.preventDefault();
-  })
-})
-
-//
-function getZipStore(_city,_zip,_address){
-  $.getJSON('https://www.tstartel.com/rest/serviceLocation/'+encodeURIComponent(_city+_zip+_address),function(storeData){
-    renderStoreContent(_city,_zip,storeData);
-  })
-}
-
-//商家 Show view
-function renderStoreContent(_city,_zip,storeData){
-  var storeContent = '';
-  $('#tableTitle').find('.caption').html(_city+' '+_zip);
-
-  if( storeData.length>0 ){
-    for(var i=0 ; i<storeData.length ; i++){
-      storeContent +='<li class="tbody">'+
-                        '<ul>'+
-                          '<li>'+
-                            '<span class="storeTag" data-storeTag="'+ new getStoreType(storeData[i].storeType).status +'">'+ new getStoreType(storeData[i].storeType).text +'</span>'+
-                            storeData[i].locationName+
-                          '</li>'+
-                          '<li>'+storeData[i].storeAddress+'<br/>'+storeData[i].phoneNumber+'</li>'+
-                          '<li>'+storeData[i].operateTime+'</li>'+
-                          '<li>'+
-                            '<a href="#" style="background-image:url(https://www.tstartel.com/resources/common/mobile/css/images/icon/tel.png);">聯絡門市</a>'+
-                            '<a href="#" style="background-image:url(https://www.tstartel.com/resources/common/mobile/css/images/icon/map.png);">規劃路線</a>'+
-                          '</li>'+
-                        '</ul>'+
-                      '</li>';
-    }
-  }else{
-    storeContent = '<li class="tbody">查無資料</li>';
-  }
-
-  $('#tableConent').html(storeContent);
-}
-
-function moveSetSelectOption(_city,_zip){
-  var optionZip = '';
-  $('select#city').val(_city);
+//get Zip Api
+function getZip(_city,_zip){
+  optionZip  = '<option value="">請選擇地區</option>';
   $.getJSON('https://www.tstartel.com/rest/zipCode/'+encodeURIComponent(_city),function(zipData){
     for(var i=0 ; i<zipData.length ; i++){
       optionZip += '<option value="'+zipData[i].district+'">'+zipData[i].district+'</option>'
@@ -96,7 +41,67 @@ function moveSetSelectOption(_city,_zip){
   })
 }
 
-//商店標籤
+//Form submit get Api
+$(function(){
+  $('form').submit(function(e){
+    var _city    = $(this).find('#city').val();
+    var _zip     = $(this).find('#zip').val();
+    var _address = $(this).find('#address').val();
+    getZipStore(_city,_zip,_address);
+    e.preventDefault();
+  })
+})
+
+//get Store infor Api
+function getZipStore(_city,_zip,_address){
+  $.getJSON('https://www.tstartel.com/rest/serviceLocation/'+encodeURIComponent(_city+_zip+_address),function(storeData){
+    renderStoreContent(_city,_zip,storeData);
+  })
+}
+
+//rnder Store infor
+function renderStoreContent(_city,_zip,storeData){
+  console.log(storeData);
+  var storeContent = '';
+  $('#tableTitle').find('.caption').html(_city+' '+_zip);
+
+  if( storeData.length>0 ){
+    for(var i=0 ; i<storeData.length ; i++){
+      storeContent +='<li class="tbody">'+
+                        '<ul>'+
+                          '<li>'+
+                            '<span class="storeTag" data-storeTag="'+ new getStoreType(storeData[i].storeType).status +'">'+ new getStoreType(storeData[i].storeType).text +'</span>'+
+                            storeData[i].locationName+
+                          '</li>'+
+                          '<li>'+storeData[i].storeAddress+'<br/>'+storeData[i].phoneNumber+'</li>'+
+                          '<li>'+storeData[i].operateTime+'</li>'+
+                          '<li>'+
+                            '<a href="#" class="btnStyleModel6">'+
+                              '<img src="https://www.tstartel.com/resources/common/mobile/css/images/icon/tel.png" alt="聯絡門市" title="" style="width:15px"/>'+
+                              '聯絡門市'+
+                            '</a>'+
+                            '<a href="#" class="btnStyleModel6">'+
+                              '<img src="https://www.tstartel.com/resources/common/mobile/css/images/icon/map.png" alt="規劃路線" title=""/>'+
+                              '規劃路線'+
+                            '</a>'+
+                          '</li>'+
+                        '</ul>'+
+                      '</li>';
+    }
+  }else{
+    storeContent = '<li class="tbody">查無資料</li>';
+  }
+  $('#tableConent').html(storeContent);
+}
+
+//Now location Set CitySelect and ZipSelect
+function moveSetSelectOption(_city,_zip){
+  var optionZip = '';
+  $('select#city').val(_city);
+  getZip( _city,_zip );
+}
+
+//Store Label Status
 function getStoreType( storeType ){
   var text   = '';
       status = '';
@@ -121,22 +126,10 @@ function getStoreType( storeType ){
 
 //======= Google map =========
 function initMap() {
-  var googleMapKey    = 'AIzaSyAvJ7qc6sj6AwQVuPx-WD904ETE_WaQgXA',
-      showMapBlockId  = 'test1',
-      mapZoom         = 15,
-      nowSetIcon      = 'https://www.tstartel.com/resources/s0051/images/current_location.png',
-      storeIcon       = 'https://www.tstartel.com/resources/s0051/images/store.png',
-      autocomplete,
-      countryRestrict = {'country': '內湖區'};
-
-
-
-
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     var pos;
     navigator.geolocation.getCurrentPosition(function(position) {
-
       var map = new google.maps.Map(document.getElementById(showMapBlockId), {
         center    : {lat: position.coords.latitude, lng: position.coords.longitude},
         zoom      : mapZoom,
@@ -148,7 +141,15 @@ function initMap() {
         lng: position.coords.longitude,
       };
 
-      $.getJSON('//maps.google.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&language=zh-TW&sensor=true',function(nowCity){
+      map.setCenter(pos);
+      var marker = new google.maps.Marker({
+        position: map.getCenter(),
+        icon    : nowSetIcon,
+        map     : map
+      });
+
+      //get Now Location
+      $.getJSON('https://maps.google.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&key='+googleMapKey,function(nowCity){
         if( nowCity.results[0]!=undefined ){
           var addressComponents        = nowCity.results[0].address_components,
               addressComponentsLength  = addressComponents.length,
@@ -156,51 +157,34 @@ function initMap() {
               _country                 = addressComponents[addressComponentsLength-2].long_name, //國家
               _city                    = addressComponents[addressComponentsLength-3].long_name, //城市
               _zip                     = addressComponents[addressComponentsLength-4].long_name; //行政區
+              _address                 = _city+_zip,
+              _searchCity              = '',
+              _searchZip               = ''
 
-          $.getJSON('https://www.tstartel.com/rest/serviceLocation/'+encodeURIComponent(_city+_zip),function(storeData){
+          $.getJSON('https://www.tstartel.com/rest/serviceLocation/'+encodeURIComponent(_address),function(storeData){
             if( storeData.length>0 ){
+              var _storeDataLength = storeData.length;
+              locations = [];
+              for(var i=0 ; i<_storeDataLength ; i++){
+                locations.push({
+                  "title"   : storeData[i].locationName,
+                  "address" : storeData[i].storeAddress,
+                  "tel"     : storeData[i].phoneNumber,
+                  "lat"     : Number(storeData[i].latlng.split(',')[0]),
+                  "lng"     : Number(storeData[i].latlng.split(',')[1])
+                })
+              }
+              markerSet(locations);
               moveSetSelectOption(_city,_zip);
               renderStoreContent(_city,_zip,storeData);
             }
           });
 
-          map.setCenter(pos);
-          var marker = new google.maps.Marker({
-            position: map.getCenter(),
-            icon    : nowSetIcon,
-            map     : map
-          });
-
-          var locations = [
-            {lat: 25.0679686, lng: 121.61676590000002},
-            {lat: 25.0820612, lng: 121.5921949},
-            {lat: 25.0821952, lng: 121.5676168}
-          ];
-
-          ddd(locations);
-          function ddd(locations){
-            var markers = locations.map(function(location, i) {
-              return new google.maps.Marker({
-                position : location,
-                icon     : storeIcon,
-              });
-            });
-
-            var markerCluster = new MarkerClusterer(map, markers,{imagePath: storeIcon});
-          }
-
-          //----------------------
-
-          var _searchSet      = [],
-              _searchCity     = '',
-              _searchZip      = '',
-              _searchAddress  = '';
-
           $('select#city').on({
             change : function(){
               _searchCity    = $(this).val();
-              _searchAddress = _searchCity;
-              changeArea(_searchAddress);
+              _address       = _searchCity;
+              changeArea(_address);
 
             }
           });
@@ -208,37 +192,57 @@ function initMap() {
           $('select#zip').on({
             change : function(){
               _searchZip      = $(this).val();
-              _searchAddress  = _searchCity+_searchZip;
-              changeArea(_searchAddress);
+              _address        = _searchCity+_searchZip;
+              changeArea(_address);
             }
           });
 
-          function changeArea(_searchAddress){
-            $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+_searchAddress+'&key='+googleMapKey,function(setData){
-              console.log(setData);
-              _searchSet = setData.results[0].geometry.location;
-              map.setCenter(_searchSet);
-              $.getJSON('https://www.tstartel.com/rest/serviceLocation/'+encodeURIComponent(_searchAddress),function(storeData){
+          function changeArea(_address){
+            $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+_address+'&key='+googleMapKey,function(setData){
+              map.setCenter( setData.results[0].geometry.location );
+              $.getJSON('https://www.tstartel.com/rest/serviceLocation/'+encodeURIComponent(_address),function(storeData){
                 var _storeDataLength = storeData.length;
                 locations = [];
                 for(var i=0 ; i<_storeDataLength ; i++){
                   locations.push({
-                    "lat" : Number(storeData[i].latlng.split(',')[0]),
-                    "lng" : Number(storeData[i].latlng.split(',')[1])
+                    "title"   : storeData[i].locationName,
+                    "address" : storeData[i].storeAddress,
+                    "tel"     : storeData[i].phoneNumber,
+                    "lat"     : Number(storeData[i].latlng.split(',')[0]),
+                    "lng"     : Number(storeData[i].latlng.split(',')[1])
                   })
                 }
-
-                //console.log(locations);
-
-                ddd(locations);
+                markerSet(locations);
               })
             })
           }
 
-          //----------------------
+          //Add Store Marker
+          function markerSet(locations){
+            var infoWindow = new google.maps.InfoWindow();
+            for (var i=0; i<locations.length; i++) {
+              var data   = locations[i],
+                  latLng = new google.maps.LatLng(data.lat, data.lng);
+
+              var marker = new google.maps.Marker({
+                position : latLng,
+                map      : map,
+                icon     : storeIcon,
+                title    : data.title
+              });
+
+              (function(marker, data) {
+                google.maps.event.addListener(marker, "click", function(e) {
+                  infoWindow.setContent('<h3 style="color: #87286E; font-size:1.3em; margin-bottom: 5px !important;">'+data.title+'</h3><span style="color:#000; font-size:1.1em;">'+data.address+'</span>');
+                  infoWindow.open(map, marker);
+                });
+              })(marker, data);
+            }
+          }
+          //Add Store Marker End
         }
       })
-    }, function() {
+    },function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
   }else {
@@ -246,6 +250,7 @@ function initMap() {
   }
 }
 
+//Google Map Api render Error infor
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
