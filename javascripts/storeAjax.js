@@ -5,7 +5,12 @@ var optionCity      = '<option value="">請選擇縣市</option>',
     mapZoom         = 15,
     nowSetIcon      = 'https://www.tstartel.com/resources/s0051/images/current_location.png',
     storeIcon       = 'https://www.tstartel.com/resources/s0051/images/store.png',
-    locations       = [];
+    locations       = [],
+    notes           = {
+      "city"     : "請選擇縣市",
+      "zip"      : "請選擇行政區",
+      "address"  : "請填寫詳細地址"
+    };
 
 //get City Api
 $.getJSON('https://www.tstartel.com/rest/zipCode/allCity',function(cityData){
@@ -44,11 +49,15 @@ function getZip(_city,_zip){
 //Form submit get Api
 $(function(){
   $('form').submit(function(e){
+    e.preventDefault();
     var _city    = $(this).find('#city').val();
     var _zip     = $(this).find('#zip').val();
     var _address = $(this).find('#address').val();
-    getZipStore(_city,_zip,_address);
-    e.preventDefault();
+    if(_city!=''){
+      getZipStore(_city,_zip,_address);
+    }else{
+      alert(notes.city);
+    }
   })
 })
 
