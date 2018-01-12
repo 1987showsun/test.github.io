@@ -1,6 +1,6 @@
-@import 'set.scss';
 @import 'plugin.scss';
 @import 'tstar.scss';
+@import 'set.scss';
 @import 'footer.scss';
 
 input,button,select{
@@ -70,7 +70,7 @@ body{
       font-size: 2.3em;
     }
 
-    main{
+    main,article.main{
       width     : 100%;
       z-index   : 2;
       h3{
@@ -145,7 +145,7 @@ body{
     &.staggered{
       &.odd{
         &:nth-child(n+2){
-          main{
+          main,article.main{
             display: flex !important;
           }
         }
@@ -162,14 +162,14 @@ body{
 
         &:nth-child(2n+2){
           flex-direction:row-reverse;
-          main{
+          main,article.main{
             justify-content: flex-end;
           }
         }
       }
       &.even{
         &:nth-child(2n+2){
-          main{
+          main,article.main{
             display: block;
             a{
               &.btn{
@@ -190,7 +190,7 @@ body{
 
         &:nth-child(n+2):nth-child(2n+1){
           flex-direction:row-reverse;
-          main{
+          main,article.main{
             display: block;
             text-align: right;
             a{
@@ -206,14 +206,14 @@ body{
 
     &.notStaggered{
       &.left{
-        main{
+        main,article.main{
           text-align  : left;
           margin-left : 12vw;
         }
       }
       &.right{
         justify-content: flex-end;
-        main{
+        main,article.main{
           text-align  : right;
           margin-right: 12vw;
         }
@@ -347,7 +347,7 @@ body{
           padding   : 0px 10px;
           display   : flex;
           align-self: center;
-          color     : #666;
+          color     : #000;
         }
         .talkNav{
           display: flex;
@@ -357,7 +357,7 @@ body{
             padding: 0px 10px;
             a{
               max-width: 100%;
-              font-size: 0.9em;
+              font-size: 1em;
               @include radius(5px);
             }
           }
@@ -478,7 +478,7 @@ body{
         background-position : 92% center;
       }
       button{
-        width: 60px;
+        width: 150px;
         background-color: $mainColor1;
         color: #fff;
       }
@@ -495,6 +495,9 @@ body{
       };
       @include pad{
         padding     : 20px 10px;
+        span{
+          display: none;
+        }
       };
       @include mobile{
         padding     : 20px 10px;
@@ -730,16 +733,52 @@ body{
       };
       @include pad{
         margin-bottom   : 30px;
-        padding: 10px;
+        padding         : 0px 10px;
       };
       @include mobile{
-        padding: 0px;
+        padding         : 0px;
       };
     }
 
+    .notes{
+      width     : 100%;
+      display   : flex;
+      flex-wrap : wrap;
+
+      .notesTitle{
+        width       : 100%;
+        height      : 55px;
+        padding     : 0px 10px 0px 40px;
+        color       : #000;
+        font-size   : 1.2em;
+        display     : flex;
+        align-items : center;
+        background-color: #ebdfe8;
+        background-image: url($iconExclamationPoint);
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: 13px center;
+      }
+      .notesContent{
+        width: 100%;
+        padding: 10px;
+        background-color: #fff;
+      }
+      @include pc{
+        margin-bottom: 30px;
+      };
+      @include pad{
+        padding: 0px 10px;
+        margin : 5px 0px 35px 0px;
+      };
+      @include mobile{
+        padding: 0px 10px;
+        margin : 20px 0px 0px 0px;
+      };
+    }
 
     @include loginPc{
-      main{
+      main,article.main{
         z-index    : 2;
         display    : block;
         align-items: center;
@@ -785,17 +824,17 @@ body{
       &.staggered{
         &.odd{
           &:nth-child(n+2){
-            main{
+            main,article.main{
               display: flex !important;
             }
           }
           &:nth-child(2n+1){
             &.margin{
-              main{
+              main,article.main{
                 margin-left: 12vw;
               }
             }
-            main{
+            main,article.main{
               width   : 45vw;
               >.mainLeft{
                 margin-left: 20px;
@@ -814,11 +853,11 @@ body{
           &:nth-child(2n+2){
             flex-direction:row-reverse;
             &.margin{
-              main{
+              main,article.main{
                 margin-right: 12vw;
               }
             }
-            main{
+            main,article.main{
               width: 45vw;
               text-align: right;
               justify-content: flex-end;
@@ -831,11 +870,11 @@ body{
         &.even{
           &:nth-child(2n+2){
             &.margin{
-              main{
+              main,article.main{
                 margin-left: 12vw;
               }
             }
-            main{
+            main,article.main{
               width: 40vw;
               display: block;
               a{
@@ -858,11 +897,11 @@ body{
           &:nth-child(n+2):nth-child(2n+1){
             flex-direction:row-reverse;
             &.margin{
-              main{
+              main,article.main{
                 margin-right: 12vw;
               }
             }
-            main{
+            main,article.main{
               width: 40vw;
               display: block;
               text-align: right;
@@ -884,7 +923,7 @@ body{
     };
 
     @include loginPad{
-      main{
+      main,article.main{
         z-index    : 2;
         display    : block;
         align-items: center;
@@ -930,17 +969,17 @@ body{
       &.staggered{
         &.odd{
           &:nth-child(n+2){
-            main{
+            main,article.main{
               display: flex !important;
             }
           }
           &:nth-child(2n+1){
             &.margin{
-              main{
+              main,article.main{
                 margin-left: 5vw;
               }
             }
-            main{
+            main,article.main{
               width   : 50vw;
               >.mainLeft{
                 margin-left: 20px;
@@ -959,11 +998,11 @@ body{
           &:nth-child(2n+2){
             flex-direction:row-reverse;
             &.margin{
-              main{
+              main,article.main{
                 margin-right: 5vw;
               }
             }
-            main{
+            main,article.main{
               width: 50vw;
               text-align: right;
               justify-content: flex-end;
@@ -976,11 +1015,11 @@ body{
         &.even{
           &:nth-child(2n+2){
             &.margin{
-              main{
+              main,article.main{
                 margin-left: 12vw;
               }
             }
-            main{
+            main,article.main{
               width: 40vw;
               display: block;
               a{
@@ -1003,11 +1042,11 @@ body{
           &:nth-child(n+2):nth-child(2n+1){
             flex-direction:row-reverse;
             &.margin{
-              main{
+              main,article.main{
                 margin-right: 12vw;
               }
             }
-            main{
+            main,article.main{
               width: 40vw;
               display: block;
               text-align: right;
@@ -1030,7 +1069,7 @@ body{
 
     @include loginMobile{
       justify-content: center;
-      main{
+      main,article.main{
         width: 50vw;
         min-width: 300px;
         margin-bottom: 30px;
@@ -1060,7 +1099,7 @@ body{
             svg{
               display: none;
             }
-            main{
+            main,article.main{
               width: 80vw;
               padding: 30px 30px;
               background-color: #fff;
@@ -1094,7 +1133,7 @@ body{
   }
   .justifyContent{
     justify-content: center;
-    main{
+    main,article.main{
       justify-content: center;
       text-align: center;
     }
@@ -1344,7 +1383,7 @@ body{
   &.indexPage2{
     background-image    : url('https://www.tstartel.com/upload/1/index/426/2_rwd_i_002_1_1_I1.jpg');
     background-repeat   : no-repeat;
-    main{
+    main,article.main{
       opacity: 0;
       margin-top: 100px;
       @include transition(all .5s);
@@ -1358,7 +1397,7 @@ body{
       @include transition(all 1.2s);
     }
     &.active{
-      main{
+      main,article.main{
         margin-top: 0px;
         opacity: 1;
       }
@@ -1384,14 +1423,14 @@ body{
     background-image   : url(https://www.tstartel.com/upload/1/index/426/3_rwd_i_002_1_1_I1.jpg);
     background-repeat  : no-repeat;
     @include transition(all .9s);
-    main{
+    main,article.main{
       color     : #000;
       opacity   : 0;
       margin-top: 100px;
       @include transition(all .5s);
     }
     &.active{
-      main{
+      main,article.main{
         margin-top: 0px;
         opacity: 1;
       }
@@ -1413,7 +1452,7 @@ body{
     justify-content: center;
     flex-direction: row-reverse;
     align-items: flex-end;
-    main{
+    main,article.main{
       margin-left      : 0px;
       margin-bottom    : 0%;
       background-color : #fff;
@@ -1423,7 +1462,7 @@ body{
       @include transition(all 1s);
     }
     &.active{
-      main{
+      main,article.main{
         opacity       : 1;
         margin-bottom : 5%;
       }
@@ -1431,7 +1470,7 @@ body{
     @include pc{
       background-position: center top;
       background-size: 100% auto;
-      main{
+      main,article.main{
         width            : 55vw !important;
         padding          : 25px;
       }
@@ -1439,7 +1478,7 @@ body{
     @include pad{
       background-position: center top;
       background-size: 100% auto;
-      main{
+      main,article.main{
         width            : 70vw !important;
         padding          : 25px;
       }
@@ -1447,7 +1486,7 @@ body{
     @include mobile{
       background-position: 70% top;
       background-size: 250% auto;
-      main{
+      main,article.main{
         width            : 90vw !important;
         padding          : 25px;
       }
@@ -1571,13 +1610,13 @@ body{
 
   /* loginPageStyle */
   &.loginAction{
-    main{
+    main,article.main{
       opacity: 0;
       margin-top: 200px;
       @include transition(all .5s);
     }
     &.active{
-      main{
+      main,article.main{
         margin-top: 0px;
         opacity: 1 !important;
       }
@@ -1627,7 +1666,7 @@ body{
   }
   &.loginPage4{
     background-color: #eeebee;
-    main{
+    main,article.main{
       color     : #000;
       background-color: transparent !important;
       display   : flex !important;
@@ -1661,7 +1700,7 @@ body{
     }
 
     @include loginPc{
-      main{
+      main,article.main{
         padding: 50px 0px;
         >ul{
           margin-left: 50px;
@@ -1678,7 +1717,7 @@ body{
       }
     }
     @include loginPad{
-      main{
+      main,article.main{
         padding: 50px 0px;
         >ul{
           margin-left: 50px;
@@ -1695,7 +1734,7 @@ body{
       }
     }
     @include loginMobile{
-      main{
+      main,article.main{
         padding: 50px 0px !important;
         margin-bottom: 0px !important;
         h3{
@@ -1751,12 +1790,12 @@ body{
       };
     }
     &.page1{
-      main{
+      main,article.main{
         width: 100% !important;
         margin-bottom: 0px !important;
       }
     }
-    main{
+    main,article.main{
       width             : 100%;
       display           : flex !important;
       align-items       : center;
@@ -1876,7 +1915,7 @@ body{
     flex-wrap   : wrap;
     align-items : stretch !important;
     background-color: #eeebee;
-    .tsContentBlock{
+    .main{
       display     : flex;
       align-items : flex-start;
       flex-wrap   : wrap;
@@ -1965,7 +2004,7 @@ body{
         }
       }
     }
-    .tsContentBlockContent{
+    .mainContent{
       width     : 100%;
       display   : flex;
       flex-wrap : wrap;
@@ -2506,6 +2545,21 @@ body{
         }
       }
     };
+  }
+
+  &.notesUl{
+    padding-left: 30px;
+    list-style-type : decimal;
+    >li{
+      width     : 100%;
+      min-height: 40px;
+      display   : list-item;
+      padding   : 10px 5px;
+      color     : #000;
+      text-align: left;
+      line-height: 1.5em;
+      text-align: justify;
+    }
   }
 }
 

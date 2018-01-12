@@ -3,6 +3,8 @@ $mainColor2 : #ea168c;
 $maxWidth   : 1280px;
 $iconDown   : "data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI4NC45MjkgMjg0LjkyOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjg0LjkyOSAyODQuOTI5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTI4Mi4wODIsNzYuNTExbC0xNC4yNzQtMTQuMjczYy0xLjkwMi0xLjkwNi00LjA5My0yLjg1Ni02LjU3LTIuODU2Yy0yLjQ3MSwwLTQuNjYxLDAuOTUtNi41NjMsMi44NTZMMTQyLjQ2NiwxNzQuNDQxICAgTDMwLjI2Miw2Mi4yNDFjLTEuOTAzLTEuOTA2LTQuMDkzLTIuODU2LTYuNTY3LTIuODU2Yy0yLjQ3NSwwLTQuNjY1LDAuOTUtNi41NjcsMi44NTZMMi44NTYsNzYuNTE1QzAuOTUsNzguNDE3LDAsODAuNjA3LDAsODMuMDgyICAgYzAsMi40NzMsMC45NTMsNC42NjMsMi44NTYsNi41NjVsMTMzLjA0MywxMzMuMDQ2YzEuOTAyLDEuOTAzLDQuMDkzLDIuODU0LDYuNTY3LDIuODU0czQuNjYxLTAuOTUxLDYuNTYyLTIuODU0TDI4Mi4wODIsODkuNjQ3ICAgYzEuOTAyLTEuOTAzLDIuODQ3LTQuMDkzLDIuODQ3LTYuNTY1QzI4NC45MjksODAuNjA3LDI4My45ODQsNzguNDE3LDI4Mi4wODIsNzYuNTExeiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=";
 
+$iconExclamationPoint : "data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUxMi4yMDkgNTEyLjIwOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyLjIwOSA1MTIuMjA5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTUwNy4zNDUsNDM5LjY4M0wyODguMDg0LDM3LjY4OGMtMy4yMzctNS44OTktNy43MS0xMC41NjQtMTMuNDI5LTEzLjk4OGMtNS43MDUtMy40MjctMTEuODkzLTUuMTQyLTE4LjU1NC01LjE0MiAgIHMtMTIuODUsMS43MTgtMTguNTU4LDUuMTQyYy01LjcwOCwzLjQyNC0xMC4xODQsOC4wODktMTMuNDE4LDEzLjk4OEw0Ljg1OSw0MzkuNjgzYy02LjY2MywxMS45OTgtNi40NzMsMjMuOTg5LDAuNTcsMzUuOTggICBjMy4yMzksNS41MTcsNy42NjQsOS44OTcsMTMuMjc4LDEzLjEyOGM1LjYxOCwzLjIzNywxMS42Niw0Ljg1OSwxOC4xMzIsNC44NTloNDM4LjUyOWM2LjQ3OSwwLDEyLjUxOS0xLjYyMiwxOC4xMzQtNC44NTkgICBjNS42Mi0zLjIzLDEwLjAzOC03LjYxMSwxMy4yNzgtMTMuMTI4QzUxMy44MjMsNDYzLjY2NSw1MTQuMDE1LDQ1MS42ODEsNTA3LjM0NSw0MzkuNjgzeiBNMjkyLjY1NSw0MTEuMTMyICAgYzAsMi42NjItMC45MSw0Ljg5Ny0yLjcxLDYuNzA0Yy0xLjgwNywxLjgxMS0zLjk0OSwyLjcxLTYuNDI3LDIuNzFoLTU0LjgxNmMtMi40NzQsMC00LjYxNi0wLjg5OS02LjQyMy0yLjcxICAgYy0xLjgwOS0xLjgwNy0yLjcxMy00LjA0Mi0yLjcxMy02LjcwNHYtNTQuMjQ4YzAtMi42NjIsMC45MDUtNC44OTcsMi43MTMtNi43MDRjMS44MDctMS44MTEsMy45NDYtMi43MSw2LjQyMy0yLjcxaDU0LjgxMiAgIGMyLjQ3OSwwLDQuNjIsMC44OTksNi40MjgsMi43MWMxLjgwMywxLjgwNywyLjcxLDQuMDQyLDIuNzEsNi43MDR2NTQuMjQ4SDI5Mi42NTV6IE0yOTIuMDg4LDMwNC4zNTcgICBjLTAuMTk4LDEuOTAyLTEuMTk4LDMuNDctMy4wMDEsNC43MDljLTEuODExLDEuMjM4LTQuMDQ2LDEuODU0LTYuNzExLDEuODU0aC01Mi44MmMtMi42NjMsMC00Ljk0Ny0wLjYyLTYuODQ5LTEuODU0ICAgYy0xLjkwOC0xLjI0My0yLjg1OC0yLjgwNy0yLjg1OC00LjcxNmwtNC44NTMtMTMwLjQ3YzAtMi42NjcsMC45NTMtNC42NjUsMi44NTYtNS45OTZjMi40NzQtMi4wOTMsNC43NTgtMy4xNCw2Ljg1NC0zLjE0aDYyLjgwOSAgIGMyLjA5OCwwLDQuMzgsMS4wNDMsNi44NTQsMy4xNGMxLjkwMiwxLjMzMSwyLjg1MSwzLjE0LDIuODUxLDUuNDI0TDI5Mi4wODgsMzA0LjM1N3oiIGZpbGw9IiNEODAwMjciLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K";
+
 @mixin radius($val) {
   -moz-border-radius: $val;
   -webkit-border-radius: $val;
@@ -133,7 +135,7 @@ $btnChangeTime : .2s;
   cursor          : pointer;
   @include radius(300px);
   @include transition(all $btnChangeTime);
-  &:hover{
+  &:hover,&:active,&:focus{
     background-color: #E3007C !important;
     color: #fff;
   }
@@ -145,7 +147,7 @@ $btnChangeTime : .2s;
   cursor          : pointer;
   @include radius(300px);
   @include transition(all $btnChangeTime);
-  &:hover{
+  &:hover,&:active,&:focus{
     background-color: #E3007C;
   }
 }
@@ -156,7 +158,7 @@ $btnChangeTime : .2s;
   cursor          : pointer;
   @include radius(300px);
   @include transition(all .2s);
-  &:hover{
+  &:hover,&:active,&:focus{
     color: #E3007C;
   }
 }
@@ -168,7 +170,7 @@ $btnChangeTime : .2s;
   cursor          : pointer;
   @include radius(300px);
   @include transition(all $btnChangeTime);
-  &:hover{
+  &:hover,&:active,&:focus{
     color   : #fff;
     border  : 1px solid $mainColor2;
     background-color: $mainColor2;
@@ -184,8 +186,8 @@ $btnChangeTime : .2s;
   color           : #fff;
   background-color: $mainColor1;
   @include transition(all $btnChangeTime);
-  &:hover{
-    color           : #fff;
+  &:hover,&:active,&:focus{
+    color           : #fff !important;
     background-color: $mainColor2;
   }
 }
@@ -198,6 +200,9 @@ $btnChangeTime : .2s;
   cursor          : pointer;
   @include radius(300px);
   @include transition(all $btnChangeTime);
+  &:hover,&:active,&:focus{
+    color: #fff !important;
+  }
 }
 
 .iconStyleModel1{
