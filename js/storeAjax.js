@@ -10,20 +10,28 @@ var optionCity      = '<option value="">請選擇縣市</option>',
       "city"     : "請選擇縣市",
       "zip"      : "請選擇行政區",
       "address"  : "請填寫詳細地址"
-    };
+    },
+    currentLocation = "";
 
 //get City Api
 $.getJSON('https://www.tstartel.com/rest/zipCode/allCity',function(cityData){
+  var _city = "",_zip = "",_address = "";
   for(var i=0 ; i<cityData.length ; i++){
     optionCity += '<option value="'+cityData[i].city+'">'+cityData[i].city+'</option>'
   }
-  $('select#zip').html(optionZip);
   $('select#city').html(optionCity).on({
     change : function(){
-      var _city     = $(this).val(),_zip='',
-          _address  = '',
-          _zip      = '';
+      _city     = $(this).val();
+      _zip      = '';
+      _address  = '';
       getZip( _city,_zip );
+      getZipStore(_city,_zip,_address);
+    }
+  });
+  $('select#zip').html(optionZip).on({
+    change : function(){
+      _zip      = $(this).val();
+      _address  = '';
       getZipStore(_city,_zip,_address);
     }
   });
@@ -36,13 +44,7 @@ function getZip(_city,_zip){
     for(var i=0 ; i<zipData.length ; i++){
       optionZip += '<option value="'+zipData[i].district+'">'+zipData[i].district+'</option>'
     }
-    $('select#zip').html(optionZip).val(_zip).on({
-      change : function(){
-        var _zip      = $(this).val(),
-            _address  = '';
-        getZipStore(_city,_zip,_address);
-      }
-    });
+    $('select#zip').html(optionZip).val(_zip);
   })
 }
 
@@ -88,7 +90,7 @@ function renderStoreContent(_city,_zip,storeData){
                               '<img src="https://www.tstartel.com/resources/common/mobile/css/images/icon/tel.png" alt="聯絡門市" title="" style="width:15px"/>'+
                               '聯絡門市'+
                             '</a>'+
-                            '<a href="https://www.google.com/maps/dir/Current+Location/'+storeData[i].latlng+'" class="btnStyleModel6" target="_blank">'+
+                            '<a href="https://www.google.com/maps/dir/'+currentLocation+'/'+storeData[i].latlng+'" class="btnStyleModel6" target="_blank">'+
                               '<img src="https://www.tstartel.com/resources/common/mobile/css/images/icon/map.png" alt="規劃路線" title=""/>'+
                               '規劃路線'+
                             '</a>'+
@@ -159,6 +161,7 @@ function initMap() {
       //get Now Location
       $.getJSON('https://maps.google.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&key='+googleMapKey,function(nowCity){
         if( nowCity.results[0]!=undefined ){
+
           var addressComponents        = nowCity.results[0].address_components,
               addressComponentsLength  = addressComponents.length,
               _postalCode              = addressComponents[addressComponentsLength-1].long_name, //郵遞區號
@@ -167,7 +170,9 @@ function initMap() {
               _zip                     = addressComponents[addressComponentsLength-4].long_name; //行政區
               _address                 = _city+_zip,
               _searchCity              = '',
-              _searchZip               = ''
+              _searchZip               = '';
+
+          currentLocation = nowCity.results[0].geometry.location.lat+','+nowCity.results[0].geometry.location.lng;
 
           $.getJSON('https://www.tstartel.com/rest/serviceLocation/'+encodeURIComponent(_address),function(storeData){
             if( storeData.length>0 ){
@@ -193,7 +198,6 @@ function initMap() {
               _searchCity    = $(this).val();
               _address       = _searchCity;
               changeArea(_address);
-
             }
           });
 

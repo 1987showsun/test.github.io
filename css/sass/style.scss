@@ -1787,14 +1787,15 @@ body{
       };
     }
     &.page1{
-      main,article.main{
+      main{
         width: 100% !important;
         margin-bottom: 0px !important;
       }
     }
     main,article.main{
-      width             : 100%;
+      width             : 100% !important;
       display           : flex !important;
+      margin-bottom     : 0px !important;
       align-items       : center;
       background-color  : #fff;
       flex-direction    : column;
@@ -1912,7 +1913,7 @@ body{
     flex-wrap   : wrap;
     align-items : stretch !important;
     background-color: #eeebee;
-    .main{
+    .tsContentBlock{
       display     : flex;
       align-items : flex-start;
       flex-wrap   : wrap;
@@ -2001,7 +2002,7 @@ body{
         }
       }
     }
-    .mainContent{
+    .tsContentBlockContent{
       width     : 100%;
       display   : flex;
       flex-wrap : wrap;
